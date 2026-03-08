@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Numerical Solver</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body data-theme="dark">
+  <header class="topbar">
+    <h1 class="brand-title">Numerical Solver</h1>
+
+    <div class="theme-segment" role="group" aria-label="Theme">
+      <button id="themeDark" class="theme-opt active" type="button">Dark</button>
+      <button id="themeLight" class="theme-opt" type="button">Light</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card method-tabs" id="tabs"></section>
+
+    <section class="card input-room">
+      <div class="row">
+        <div class="field grow" id="equationField">
+          <label for="equation">Equation / g(x)</label>
+          <input id="equation" type="text" placeholder="e.g. x*x*x - 4*x - 5" />
+        </div>
+        <div class="field grow" id="derivativeField" style="display:none;">
+          <label for="derivative">Derivative f'(x)</label>
+          <input id="derivative" type="text" placeholder="e.g. 3*x*x - 4" />
+        </div>
+      </div>
+
+      <div id="dynamicFields" class="grid"></div>
+
+      <div class="actions">
+        <button id="solveBtn" class="btn primary action-btn">Solve</button>
+        <button id="clearBtn" class="btn action-btn">Clear</button>
+        <button id="sampleBtn" class="btn action-btn">Sample Data</button>
+        <button id="copyBtn" class="btn action-btn">Copy</button>
+        <button id="csvBtn" class="btn action-btn">CSV</button>
+        <button id="pdfBtn" class="btn success action-btn">PDF</button>
+      </div>
+
+      <p id="hint" class="hint"></p>
+      <p id="msg" class="msg"></p>
+    </section>
+
+    <section class="card input-room" id="chartCard">
+      <div class="chart-head">
+        <h3>Function Plot</h3>
+        <div class="plot-controls">
+          <button id="zoomInBtn" class="btn mini">Zoom +</button>
+          <button id="zoomOutBtn" class="btn mini">Zoom -</button>
+          <button id="resetPlotBtn" class="btn mini">Reset</button>
+        </div>
+      </div>
+      <canvas id="plot" width="1200" height="420"></canvas>
+    </section>
+
+    <section class="card">
+      <h3>Results</h3>
+      <div id="badge" class="badge"></div>
+      <div id="summary" class="summary"></div>
+      <div class="table-wrap">
+        <table id="resultTable">
+          <thead></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="foot-col">
+        <strong>Numerical Solver</strong>
+        <span>Accurate & Fast Numerical Methods</span>
+      </div>
+      <div class="foot-col center">
+        <span>Bisection • False Position • Newton • Fixed Point</span>
+        <span>Gauss • LU • Cramer's Rule</span>
+      </div>
+      <div class="foot-col right">
+        <strong>v1.0.0</strong>
+        <span>Built for Numerical Methods Practice</span>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast"></div>
+  <script src="./app.js"></script>
+</body>
+</html>
